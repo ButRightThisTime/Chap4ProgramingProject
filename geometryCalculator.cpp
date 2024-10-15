@@ -28,6 +28,14 @@ int inputValidation(string question, int min, bool inclusiveMin, int max, bool i
     }
     return input;
 }
+double nonNeg() {
+    double num; cin >> num;
+    while (num < 0) {
+        cout << "\n Please Enter a Positive Number: ";
+        cin >> num;
+    }
+    return num;
+}
 int main()
 {
     bool flag = true;
@@ -36,17 +44,17 @@ int main()
         int choice = inputValidation("\nChoice: ", 1, true, 4, true);
         switch (choice) {
         case(1): {
-            double radius; cout << "Radius of Circle: "; cin >> radius;
+            double radius; cout << "Radius of Circle: "; radius = nonNeg();
             cout << "Area of Circle: " << radius * radius * 3.14159;
             break;
         }
         case(2): {
-            double w, l; cout << "Width of Rectangle: "; cin >> w; cout << "Length of Rectangle"; cin >> l;
+            double w, l; cout << "Width of Rectangle: "; w = nonNeg(); cout << "Length of Rectangle"; l = nonNeg();
             cout << "Area of Rectangle: " << w * l;
             break;
         }
         case(3): {
-            double b, h; cout << "Base of Triangle: "; cin >> b; cout << "Height of Triangle: "; cin >> h;
+            double b, h; cout << "Base of Triangle: "; b = nonNeg(); cout << "Height of Triangle: "; h = nonNeg();
             cout << "Area of Triangle" << b * h * 0.5;
             break;
         }
@@ -58,14 +66,3 @@ int main()
     }
     return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
